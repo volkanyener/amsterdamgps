@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import OnDuty from "./pages/OnDuty";
 import SignUpPage from "./pages/SignUpPage";
 import PatientsDatabase from "./pages/PatientDatabase";
+import DetailPatientPage from "./pages/DetailPatientPage";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/patientsdatabase" component={PatientsDatabase} />
+        <Route exact path="/detailpatient/:id" component={DetailPatientPage} />
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/onduty" component={OnDuty} />
