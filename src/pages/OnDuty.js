@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Contact from "../components/Contact";
 import axios from "axios";
 import "../components/OnDuty.css";
-import Timeout from "await-timeout";
+// import Timeout from "await-timeout";
 
 export default function OnDuty() {
   const [doctorOnDuty, set_doctorOnDuty] = useState();
 
   useEffect(() => {
     async function dutyDoctors() {
-      await Timeout.set(2000);
+      // await Timeout.set(2000);
       const data = await axios.get(
         `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`
       );

@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function DetailPatientPage() {
   const [detailPatient, setdetailPatient] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
   const route_parameters = useParams();
 
   useEffect(() => {
@@ -13,10 +14,11 @@ export default function DetailPatientPage() {
       );
       console.log("RESPONSE DETAIL PATIENT", responsedetailPatient);
       setdetailPatient(responsedetailPatient.data);
+      setPrescriptions(responsedetailPatient.data.prescriptions);
     }
     detailPatient();
   }, [route_parameters.id]);
-  console.log("TESTINGGGG", detailPatient);
+  console.log("TESTINGGGG", detailPatient.prescriptions);
 
   return (
     <div>
@@ -32,7 +34,14 @@ export default function DetailPatientPage() {
       <p>{detailPatient.phoneNumber}</p>
       <br />
       <h4>Prescriptions:</h4>
-      <ul></ul>
+
+      <ul>
+        {prescriptions.length === 0
+          ? "No prescriptions for this patient"
+          : prescriptions.map((prescrip, index) => {
+              return <p key={index}>{prescrip}</p>;
+            })}
+      </ul>
     </div>
   );
 }
